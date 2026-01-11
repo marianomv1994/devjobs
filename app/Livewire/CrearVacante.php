@@ -2,12 +2,12 @@
 
 namespace App\Livewire;
 
-use App\Models\Categoria;
 use App\Models\Salario;
-use App\Models\User;
 use App\Models\Vacante;
 use Livewire\Component;
+use App\Models\Categoria;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
 class CrearVacante extends Component
 {
@@ -56,7 +56,7 @@ class CrearVacante extends Component
             'ultimo_dia' => $datos['ultimo_dia'],
             'descripcion' => $datos['descripcion'],
             'imagen' => $datos['imagen'],
-            'user_id' => User::all()->random()->id,
+            'user_id' => Auth::user()->id,
         ]);
 
         //Crear un mensaje
