@@ -8,8 +8,18 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
 
+
+
+
 class MostrarVacantes extends Component
 {
+    protected $listeners = ['eliminarVacante'];
+
+    public function eliminarVacante(Vacante $vacante)
+    {
+        $vacante->delete();
+    }
+
     public function render()
     {
         $vacantes = Vacante::where('user_id', Auth::user()->id)->paginate(10);
