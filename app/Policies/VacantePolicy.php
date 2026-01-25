@@ -13,7 +13,8 @@ class VacantePolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->roll ===  2;
+        //return false;
     }
 
     /**
@@ -29,7 +30,8 @@ class VacantePolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->roll ===  2;
+        //return false;
     }
 
     /**
