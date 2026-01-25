@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Candidato;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vacante extends Model
 {
@@ -28,5 +29,9 @@ class Vacante extends Model
 
     public function salario(){
         return $this->belongsTo(Salario::class);
+    }
+
+    public function candidatos(){
+        return $this->hasMany(Candidato::class);
     }
 }
